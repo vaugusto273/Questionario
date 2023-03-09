@@ -140,7 +140,52 @@ function Questao3 (LetraDaQuestao){''
     }
 }
 
+/*
+4 - Dois veículos (um carro e um caminhão) saem respectivamente de cidades opostas pela mesma rodovia. O carro de Ribeirão Preto em direção a Franca, 
+a uma velocidade constante de 110 km/h e o caminhão de Franca em direção a Ribeirão Preto a uma velocidade constante de 80 km/h. Quando eles se cruzarem 
+na rodovia, qual estará mais próximo a cidade de Ribeirão Preto?
+
+IMPORTANTE:
+
+a) Considerar a distância de 100km entre a cidade de Ribeirão Preto <-> Franca.
+
+b) Considerar 2 pedágios como obstáculo e que o caminhão leva 5 minutos a mais para passar em cada um deles e o carro possui tag de pedágio (Sem Parar)
+
+c) Explique como chegou no resultado.
+
+*/ 
+
+function Questao4(){
+    let velocidadeCarro = 110; velocidadeCaminhao= 80; distancia = 100; pedagioCaminhao = 10;
+    velocidadeCarro = velocidadeCarro / 60;
+    velocidadeCaminhao = (velocidadeCaminhao / 60);
+    pedagioCaminhao = pedagioCaminhao;
+    let t = distancia / (velocidadeCarro + velocidadeCaminhao);
+    let distanciaCarro = velocidadeCarro * t;
+    let distanciaCaminhao = velocidadeCaminhao * (t + pedagioCaminhao);
+    if (distanciaCarro < distanciaCaminhao) {
+        return "O carro está mais próximo a cidade de Ribeirão Preto. " + t + " minutos";
+    } 
+    else if (distanciaCarro > distanciaCaminhao) {
+        return "O caminhão está mais próximo a cidade de Ribeirão Preto. " + t + " minutos";
+    } 
+    else {
+        return "Os veículos estão à mesma distância da cidade de Ribeirão Preto. " + t + " minutos";
+    }
+    
+}
+
+function Questao5(str){
+    let invertendo = "";
+    for (var i = str.length - 1; i >= 0; i--) { 
+        invertendo = invertendo + str[i];
+    }
+    return invertendo;
+}
 console.log("A Resposta da questão 1 é: " + Questao1());
 console.log("A Resposta da questão 2 é: " + Questao2(34) + ", " + Questao2(47) + ", " + Questao2(13));
 console.log("A Resposta da questão 3 é: " + Questao3("a") + ", " + Questao3("b") + ", " + Questao3("c") + ", " + Questao3("d") + ", " + Questao3("e") + ", f) 200");
 //A F é 200 pois a sequencia de numeros se dá com a primeira letra Dois, Dez, Doze... etc
+console.log("A Resposta da questão 4 é: " + Questao4())
+console.log("A Resposta da questão 5 é: " + Questao5("resposta"))
+
