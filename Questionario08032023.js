@@ -43,12 +43,12 @@ function Questao2 (NumeroInformado){
     let SOMAQ2 = 0; ULTIMO = 1; PENULTIMO = 0;
     while(NumeroInformado != SOMAQ2){
         if(NumeroInformado < SOMAQ2){
-            console.log(NumeroInformado + " Não faz parte da sequencia")
+            //console.log(NumeroInformado + " Não faz parte da sequencia")
             return (NumeroInformado + " não faz parte da sequencia")
         }
         else{
             SOMAQ2 = PENULTIMO + ULTIMO;
-            console.log(PENULTIMO + " + " + ULTIMO + " = " + SOMAQ2);
+            //console.log(PENULTIMO + " + " + ULTIMO + " = " + SOMAQ2);
             PENULTIMO = ULTIMO;
             ULTIMO = SOMAQ2;
             if(NumeroInformado == SOMAQ2){
@@ -57,6 +57,90 @@ function Questao2 (NumeroInformado){
         }
     }
 }
+/*
+3) Descubra a lógica e complete o próximo elemento:
+
+a) 1, 3, 5, 7, ___
+
+b) 2, 4, 8, 16, 32, 64, ____
+
+c) 0, 1, 4, 9, 16, 25, 36, ____
+
+d) 4, 16, 36, 64, ____
+
+e) 1, 1, 2, 3, 5, 8, ____
+
+f) 2,10, 12, 16, 17, 18, 19, ____
+
+*/
+function Questao3 (LetraDaQuestao){''
+    let Total, KQ3, N1, Final;
+    switch(LetraDaQuestao){
+        case "a":
+            Total = 5; KQ3 = 0; N1 = 1; Final = 0;
+            while((Total - 1) > KQ3){
+                KQ3++;
+                Final = N1 + 2;
+                N1 = Final;
+            }
+            return String("a) " + Final);
+
+        case "b":
+            Total = 7; KQ3 = 0; N1 = 2; Final = 0;
+            while((Total - 1) > KQ3){
+                KQ3++;
+                Final = N1 * 2;
+                N1 = Final;
+            }
+            return String("b) " + Final);
+
+        case "c":
+            Total = 8; KQ3 = 0; N1 = 0; N2 = 1;Final = 0;Final2 = 0;
+            while((Total - 1) > KQ3){
+                KQ3++;
+                Final = N1 + N2;
+                while((Total - 1) > KQ3){
+                    Final2 = N2 + 2;
+                    N2 = Final2;
+                    break;
+                }
+                N1 = Final ;
+            }
+            return String("c) " + Final);
+
+        case "d":
+            Total = 5; KQ3 = 0; N1 = 4; Final = 0; SVR = Math.sqrt(N1); N2 = 0;
+            while((Total - 1) >= KQ3){
+                KQ3++;
+                N2 = N2 + SVR ;
+                Final = N2 ** SVR;
+                N1 = Final;
+            }
+            return String("d) " + Final);
+
+        case "e":
+            Total = 7; KQ3 = 0; N1 = 1; Final = 0; Prox = 1;
+            
+            while((Total - 2) > KQ3){
+                KQ3++;
+                Final = N1 + Prox;
+                N1 = Prox;
+                Prox = Final
+            }
+            return String("e) " + Final);
+
+        case "f":
+            Total = 5; KQ3 = 0; N1 = 1; Final = 0;
+            while((Total - 1) > KQ3){
+                KQ3++;
+                Final = N1 + 2;
+                N1 = Final;
+            }
+            return String("a) " + Final);
+    }
+}
 
 console.log("A Resposta da questão 1 é: " + Questao1());
 console.log("A Resposta da questão 2 é: " + Questao2(34) + ", " + Questao2(47) + ", " + Questao2(13));
+console.log("A Resposta da questão 3 é: " + Questao3("a") + ", " + Questao3("b") + ", " + Questao3("c") + ", " + Questao3("d") + ", " + Questao3("e") + ", f) 200");
+//A F é 200 pois a sequencia de numeros se dá com a primeira letra Dois, Dez, Doze... etc
